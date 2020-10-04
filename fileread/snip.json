@@ -1,0 +1,22 @@
+{
+	"fileoperation1":{
+		"prefix": "fileoperation",
+		"body":[
+			"char filename[] = \"${1:filename}\";",
+			"FILE *fp = fopen(filename, \"r\");",
+			"${2:vartype} ${3:varname};",
+			"while (!feof (fp))",
+			"{",
+			"    int result = fscanf(fp,\"${4:readformat}\",&${2:varname});",
+			"    // break if nothing is read",
+			"    $0",
+			"    if (result == -1)",
+			"    {",
+			"        break;",
+			"    }",
+			"}",
+			"fclose(fp);"
+		]
+
+	}
+}
