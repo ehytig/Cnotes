@@ -1,4 +1,2 @@
-# hello-world
-This is my first repository
-
-why I can't finish this action?
+# C 语言模块
+本库为中科大计算物理作业服务，将会上传一些作业中可能使用到的函数，加快作业的进度
