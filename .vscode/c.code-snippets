@@ -1,0 +1,68 @@
+{
+	// place your snippets for c here. each snippet is defined under a snippet name and has a prefix, body and 
+	// description. the prefix is what is used to trigger the snippet and the body will be expanded and inserted. possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. placeholders with the 
+	// same ids are connected.
+	// example:
+	// "print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "log output to console"
+	// }
+	
+	"fileoperation1":{
+		"prefix": "fileread",
+		"body":[
+			"FILE *{1:fp} = fopen({2:filename}, \"r\");",
+			"${3:vartype} ${4:varname};",
+			"while (!feof (fp))",
+			"{",
+			"    int result = fscanf(fp,\"${5:readformat}\",&${4:varname});",
+			"    // break if nothing is read",
+			"    if (result == -1) break;",
+			"",
+			"    $0",
+			"}",
+			"fclose(fp);"
+		]
+
+	},
+	"print completion":{
+		"body": [
+			"print(\"${1:format}\",${2:var});$0"
+		],
+		"prefix": "print1"
+
+	},
+	"fileoperation2":{
+		"prefix": "fileoperation",
+		"body": [
+			"FILE *${1:fp} = fopen(${2:filename}, \"${3:r}\");",
+			"fclose(${1:fp});"
+		]
+	},
+	"beginning":{
+		"body": [
+			"#include <stdio.h>",
+			"#include <math.h>",
+			"#define ${1:NUM} 10000",
+			"int main()",
+			"{$0}"
+		],
+		"prefix": "beginning"
+	},
+	"filewrite_binary":{
+		"body": [
+			"FILE *${1:fp}= fopen(\"${2:filename}.bin\", \"wb\");",
+			"for ( ii = 0; ii < NUM; ii++)",
+			"{",
+			"    fwrite(${3:var},sizeof({3:var}),1,${1:fp});",
+			"}",
+			"fclose(${1:fp})",
+		],
+		"prefix": "filewrite_binary"
+	}
+}
